@@ -24,10 +24,10 @@ const swaggerDefinition = {
     description: 'This is a Swagger documentation for a Book Collection Restful API',
     license: {
       name: 
-      'Base_URL: http://localhost:2001 ',
+      'Base_URL: https://bookcollection-zky7.onrender.com ',
     },
     contact: {
-      name: 'Strange',
+      name: 'Urigwe somto',
       url: 'https://www.linkedin.com/in/urigwe-somto/',
     },
   },
@@ -47,8 +47,8 @@ security: [
 ],
   servers: [
     {
-    //   url: production,
-    //   description: 'Production server',
+      url: 'https://bookcollection-zky7.onrender.com',
+      description: 'Production server',
     },
     {
       url: 'http://localhost:2001',
