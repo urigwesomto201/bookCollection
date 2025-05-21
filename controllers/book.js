@@ -44,10 +44,9 @@ exports.createBook = async (req, res) => {
       data: book,
     });
   } catch (error) {
-    console.error("Create book error:", error.message);
     res.status(500).json({
       message: "Internal server error",
-});
+}+ error.message);
 }
 };
 
@@ -56,8 +55,7 @@ exports.getAllBooks = async (req, res) => {
     const books = await Book.find().sort({ createdAt: -1 });
     res.status(200).json({ message: "Books fetched successfully", data: books });
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" }+ error.message);
   }
 };
 
@@ -69,8 +67,7 @@ exports.getBookById = async (req, res) => {
 
     res.status(200).json({ message: "Book fetched successfully", data: book });
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" }+ error.message);
   }
 };
 
@@ -107,8 +104,7 @@ exports.updateBook = async (req, res) => {
     res.status(200).json({ message: "Book updated successfully", data: book });
 
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" }+ error.message);
   }
 };
 
@@ -126,8 +122,7 @@ exports.deleteBook = async (req, res) => {
     res.status(200).json({ message: "Book deleted successfully" });
 
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" }+ error.message);
   }
 };
 
@@ -155,7 +150,6 @@ exports.getBooks = async (req, res, next) => {
 
     res.json(books);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" }+ error.message);
   }
 };
